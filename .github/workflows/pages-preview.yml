@@ -43,7 +43,7 @@ jobs:
           ]
           for index, page in enumerate(pages):
               html = pathlib.Path(page).read_text()
-              scripts = re.findall(r'<script>([\\s\\S]*?)</script>', html)
+              scripts = re.findall(r'<script>(.*?)</script>', html, re.S)
               if len(scripts) != 1:
                   raise SystemExit(f'{page}: expected exactly one inline map script, found {len(scripts)}')
               temp = pathlib.Path(f'/tmp/swifthaul-map-{index}.js')

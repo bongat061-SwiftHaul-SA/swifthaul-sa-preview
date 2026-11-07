@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Check out preview repository
         uses: actions/checkout@v4
-      # Refresh 2026-11-07: publish the latest isolated source branch, including the Driver and Company trip-first tracking interfaces.
+      # Refresh 2026-11-07: publish the latest isolated source branch, including the Driver and Company trip-first tracking interfaces · source refresh ec9bb372.
       - name: Check out SwiftHaul source branch
         uses: actions/checkout@v4
         with:

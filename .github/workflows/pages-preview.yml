@@ -20,16 +20,16 @@ jobs:
     steps:
       - name: Check out preview repository
         uses: actions/checkout@v4
-      # Refresh 2026-11-07: publish dedicated MapLibre maps with South African city shortcuts across Customer, Driver and Company preview.
+      # Refresh 2026-11-07: Customer standalone map removed; secure driver live-location preview added.
       - name: Check out SwiftHaul source branch
         uses: actions/checkout@v4
         with:
           repository: bongat061-SwiftHaul-SA/swifthaul-sa
-          ref: feature/maplibre-customer-driver-company
+          ref: feature/secure-driver-live-location
           path: source
       - name: Validate dedicated map pages
         run: |
-          test -f source/public/map.html
+          test ! -f source/public/map.html
           test -f source/apps/driver/public/map.html
           test -f source/apps/company/public/map.html
       - name: Validate dedicated map page scripts
@@ -37,7 +37,6 @@ jobs:
           python - <<'PY'
           import pathlib, re, subprocess
           pages = [
-              'source/public/map.html',
               'source/apps/driver/public/map.html',
               'source/apps/company/public/map.html',
           ]
@@ -55,20 +54,25 @@ jobs:
           node --check source/public/location-picker.js
           node --check source/public/map-utils.js
           node --check source/public/route-preview.js
-          node --check source/public/map-context.js
           node --check source/apps/driver/public/operations.js
+          node --check source/apps/driver/public/live-location.js
+          node --check source/public/live-location-view.js
           node --check source/apps/company/public/operations.js
       - name: Validate booking-aware map links
         run: |
-          grep -q 'booking-map-context-20261107' source/public/map.html
           grep -q 'booking-map-context-20261107' source/apps/driver/public/map.html
           grep -q 'booking-map-context-20261107' source/apps/company/public/map.html
-          grep -q 'swiftHaulMap=map' source/public/map.html
           grep -q 'swiftHaulMap=map' source/apps/driver/public/map.html
           grep -q 'swiftHaulMap=map' source/apps/company/public/map.html
-          grep -q 'swiftHaulMapContext' source/public/customer.js
+          ! grep -q 'map.html' source/public/customer.html
+          ! grep -q 'map.html' source/public/customer.js
+          grep -q 'live-location-view.js' source/public/customer.html
+          grep -q 'live-location.js' source/apps/driver/public/index.html
+          grep -q 'live-location-view.js' source/apps/company/public/index.html
           grep -q 'swiftHaulMapContext' source/apps/driver/public/operations.js
           grep -q 'swiftHaulMapContext' source/apps/company/public/operations.js
+          test -f source/supabase/functions/driver-location/index.ts
+          test -f source/supabase/migrations/20261107000100_add_secure_driver_live_locations.sql
       - name: Assemble three static platform entry points
         run: |
           mkdir -p site/apps/driver/public site/apps/company/public

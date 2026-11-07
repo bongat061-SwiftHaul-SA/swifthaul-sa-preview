@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: bongat061-SwiftHaul-SA/swifthaul-sa
-          ref: fix/customer-map-interface-preview
+          ref: design/customer-uber-parcel-map-preview
           path: source
       - name: Assemble three static platform entry points
         run: |

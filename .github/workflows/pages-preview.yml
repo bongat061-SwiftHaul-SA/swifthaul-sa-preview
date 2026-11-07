@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Check out preview repository
         uses: actions/checkout@v4
-      # The isolated source branch contains the map-first Customer booking flow and multi-category parcel load, dedicated wallet/settings pages and dimensional route preview; no production deployment.
+      # Refresh 2026-11-07: publish the latest isolated source branch, including the Customer trip panel above the map.
       - name: Check out SwiftHaul source branch
         uses: actions/checkout@v4
         with:

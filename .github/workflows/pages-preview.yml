@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Check out preview repository
         uses: actions/checkout@v4
-      # Refresh 2026-11-07: Customer standalone map removed; secure driver live-location preview added. Includes the latest GPS opt-in, ownership checks, status wiring and stale-location cleanup.
+      # Refresh 2026-11-07: Customer map removed; secure live driver tracking added with SHA-256 customer ownership matching, GPS opt-in, status wiring and stale-location cleanup.
       - name: Check out SwiftHaul source branch
         uses: actions/checkout@v4
         with:
@@ -72,6 +72,8 @@ jobs:
           grep -q 'swiftHaulMapContext' source/apps/driver/public/operations.js
           grep -q 'swiftHaulMapContext' source/apps/company/public/operations.js
           test -f source/supabase/functions/driver-location/index.ts
+          grep -q 'crypto.subtle.digest' source/supabase/functions/driver-location/index.ts
+          grep -q 'identity:' source/supabase/functions/driver-location/index.ts
           test -f source/supabase/migrations/20261107000100_add_secure_driver_live_locations.sql
       - name: Assemble three static platform entry points
         run: |

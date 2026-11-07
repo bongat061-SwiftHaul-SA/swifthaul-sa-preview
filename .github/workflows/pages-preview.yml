@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Check out preview repository
         uses: actions/checkout@v4
-      # The isolated source branch contains the simplified map-first Customer booking flow and compact pricing controls.
+      # The isolated source branch contains the map-first Customer booking flow and photo-based load estimator; no production deployment.
       - name: Check out SwiftHaul source branch
         uses: actions/checkout@v4
         with:

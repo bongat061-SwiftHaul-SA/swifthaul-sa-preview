@@ -20,12 +20,12 @@ jobs:
     steps:
       - name: Check out preview repository
         uses: actions/checkout@v4
-      # Refresh 2026-11-07: publish the latest isolated Customer, Driver and Company preview branch · source refresh 79b140b5 · Driver history, Company reports and coordinate-only map pins.
+      # Refresh 2026-11-07: publish the latest isolated Customer, Driver and Company preview branch · source refresh 2d5d0ffe · MapLibre South Africa coverage pilot.
       - name: Check out SwiftHaul source branch
         uses: actions/checkout@v4
         with:
           repository: bongat061-SwiftHaul-SA/swifthaul-sa
-          ref: design/driver-history-company-monthly-reports-no-plus-codes
+          ref: feature/maplibre-south-africa-preview
           path: source
       - name: Assemble three static platform entry points
         run: |

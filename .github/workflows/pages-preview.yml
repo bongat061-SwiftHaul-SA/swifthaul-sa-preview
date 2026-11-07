@@ -32,6 +32,24 @@ jobs:
           test -f source/public/map.html
           test -f source/apps/driver/public/map.html
           test -f source/apps/company/public/map.html
+      - name: Validate dedicated map page scripts
+        run: |
+          python - <<'PY'
+          import pathlib, re, subprocess
+          pages = [
+              'source/public/map.html',
+              'source/apps/driver/public/map.html',
+              'source/apps/company/public/map.html',
+          ]
+          for index, page in enumerate(pages):
+              html = pathlib.Path(page).read_text()
+              scripts = re.findall(r'<script>([\\s\\S]*?)</script>', html)
+              if len(scripts) != 1:
+                  raise SystemExit(f'{page}: expected exactly one inline map script, found {len(scripts)}')
+              temp = pathlib.Path(f'/tmp/swifthaul-map-{index}.js')
+              temp.write_text(scripts[0])
+              subprocess.run(['node', '--check', str(temp)], check=True)
+          PY
       - name: Validate migrated map JavaScript syntax
         run: |
           node --check source/public/location-picker.js

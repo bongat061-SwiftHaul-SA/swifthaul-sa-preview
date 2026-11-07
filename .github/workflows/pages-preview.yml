@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Check out preview repository
         uses: actions/checkout@v4
-      # Refresh 2026-11-07: Customer standalone map removed; secure driver live-location preview added.
+      # Refresh 2026-11-07: Customer standalone map removed; secure driver live-location preview added. Includes the latest GPS opt-in and stale-location cleanup.
       - name: Check out SwiftHaul source branch
         uses: actions/checkout@v4
         with:

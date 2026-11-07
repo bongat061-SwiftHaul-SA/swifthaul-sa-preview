@@ -20,12 +20,12 @@ jobs:
     steps:
       - name: Check out preview repository
         uses: actions/checkout@v4
-      # Refresh 2026-11-07: publish the latest isolated Customer, Driver and Company preview branch · source refresh 435818d7 · separate Driver and Company section pages.
+      # Refresh 2026-11-07: publish the latest isolated Customer, Driver and Company preview branch · source refresh 875bcbca · Driver history, Company reports and coordinate-only map pins.
       - name: Check out SwiftHaul source branch
         uses: actions/checkout@v4
         with:
           repository: bongat061-SwiftHaul-SA/swifthaul-sa
-          ref: design/driver-home-company-web-layout-preview
+          ref: design/driver-history-company-monthly-reports-no-plus-codes
           path: source
       - name: Assemble three static platform entry points
         run: |

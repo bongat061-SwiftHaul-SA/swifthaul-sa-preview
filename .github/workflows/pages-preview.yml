@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Check out preview repository
         uses: actions/checkout@v4
-      # Refresh 2026-11-07: publish the latest isolated Customer, Driver and Company preview branch · source refresh 875bcbca · Driver history, Company reports and coordinate-only map pins.
+      # Refresh 2026-11-07: publish the latest isolated Customer, Driver and Company preview branch · source refresh 1882dca9 · Driver history, Company reports and coordinate-only map pins.
       - name: Check out SwiftHaul source branch
         uses: actions/checkout@v4
         with:

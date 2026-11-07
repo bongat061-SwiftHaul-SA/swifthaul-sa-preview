@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: bongat061-SwiftHaul-SA/swifthaul-sa
-          ref: design/customer-simple-uber-booking-preview
+          ref: design/customer-load-estimator-preview
           path: source
       - name: Assemble three static platform entry points
         run: |

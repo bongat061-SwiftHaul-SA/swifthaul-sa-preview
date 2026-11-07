@@ -20,12 +20,12 @@ jobs:
     steps:
       - name: Check out preview repository
         uses: actions/checkout@v4
-      # The isolated source branch contains the map-first Customer booking flow and parcel category cards, vehicle illustrations and mobile stylesheet fix; no production deployment.
+      # The isolated source branch contains the map-first Customer booking flow and multi-category parcel load, dedicated wallet/settings pages and dimensional route preview; no production deployment.
       - name: Check out SwiftHaul source branch
         uses: actions/checkout@v4
         with:
           repository: bongat061-SwiftHaul-SA/swifthaul-sa
-          ref: design/customer-load-estimator-preview
+          ref: design/customer-multi-parcel-pages-3d-tracking-preview
           path: source
       - name: Assemble three static platform entry points
         run: |

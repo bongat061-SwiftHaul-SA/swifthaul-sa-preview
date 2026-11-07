@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Check out preview repository
         uses: actions/checkout@v4
-      # Refresh 2026-11-07: publish the latest isolated Customer, Driver and Company preview branch · source refresh 7e36a9e3 · Customer, Driver and Company dedicated MapLibre map pages preview.
+      # Refresh 2026-11-07: publish dedicated MapLibre maps with South African city shortcuts across Customer, Driver and Company preview.
       - name: Check out SwiftHaul source branch
         uses: actions/checkout@v4
         with:

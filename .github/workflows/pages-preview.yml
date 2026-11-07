@@ -55,8 +55,20 @@ jobs:
           node --check source/public/location-picker.js
           node --check source/public/map-utils.js
           node --check source/public/route-preview.js
+          node --check source/public/map-context.js
           node --check source/apps/driver/public/operations.js
           node --check source/apps/company/public/operations.js
+      - name: Validate booking-aware map links
+        run: |
+          grep -q 'booking-map-context-20261107' source/public/map.html
+          grep -q 'booking-map-context-20261107' source/apps/driver/public/map.html
+          grep -q 'booking-map-context-20261107' source/apps/company/public/map.html
+          grep -q 'swiftHaulMap=map' source/public/map.html
+          grep -q 'swiftHaulMap=map' source/apps/driver/public/map.html
+          grep -q 'swiftHaulMap=map' source/apps/company/public/map.html
+          grep -q 'swiftHaulMapContext' source/public/customer.js
+          grep -q 'swiftHaulMapContext' source/apps/driver/public/operations.js
+          grep -q 'swiftHaulMapContext' source/apps/company/public/operations.js
       - name: Assemble three static platform entry points
         run: |
           mkdir -p site/apps/driver/public site/apps/company/public

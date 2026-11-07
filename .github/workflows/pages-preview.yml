@@ -20,12 +20,12 @@ jobs:
     steps:
       - name: Check out preview repository
         uses: actions/checkout@v4
-      # Refresh 2026-11-07: publish the latest isolated source branch, including the Customer trip panel above the map.
+      # Refresh 2026-11-07: publish the latest isolated source branch, including the Driver and Company trip-first tracking interfaces.
       - name: Check out SwiftHaul source branch
         uses: actions/checkout@v4
         with:
           repository: bongat061-SwiftHaul-SA/swifthaul-sa
-          ref: design/customer-multi-parcel-pages-3d-tracking-preview
+          ref: design/driver-company-uber-tracking-preview
           path: source
       - name: Assemble three static platform entry points
         run: |

@@ -4,6 +4,12 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      source_ref:
+        description: "SwiftHaul source branch to assemble into the isolated preview"
+        required: true
+        default: feature/payfast-card-checkout-staging
+        type: string
 
 permissions:
   contents: read
@@ -25,7 +31,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: bongat061-SwiftHaul-SA/swifthaul-sa
-          ref: feature/secure-driver-live-location
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.source_ref || 'feature/secure-driver-live-location' }}
           path: source
       - name: Validate dedicated map pages
         run: |

@@ -1,14 +1,17 @@
-name: Publish isolated SwiftHaul preview
+name: Publish isolated SwiftHaul staging preview
 
 on:
   push:
     branches: [main]
+    paths:
+      - ".github/workflows/pages-preview.yml"
+      - "README.md"
   workflow_dispatch:
     inputs:
       source_ref:
-        description: "SwiftHaul source branch to assemble into the isolated preview"
+        description: "SwiftHaul source branch to publish to this isolated preview"
         required: true
-        default: feature/dark-premium-customer-driver-staging
+        default: feature/sa-sms-whatsapp-notifications-staging
         type: string
 
 permissions:
@@ -26,79 +29,36 @@ jobs:
     steps:
       - name: Check out preview repository
         uses: actions/checkout@v4
-      # Refresh 2026-11-07: Customer map removed; secure live driver tracking added with SHA-256 customer ownership matching, GPS opt-in, status wiring and stale-location cleanup.
-      - name: Check out SwiftHaul source branch
+
+      - name: Check out SwiftHaul staging source
         uses: actions/checkout@v4
         with:
           repository: bongat061-SwiftHaul-SA/swifthaul-sa
-          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.source_ref || 'feature/secure-driver-live-location' }}
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.source_ref || 'feature/sa-sms-whatsapp-notifications-staging' }}
           path: source
-      - name: Validate dedicated map pages
+
+      - name: Build the three independent platform bundles
+        working-directory: source
+        run: node scripts/build-pages.cjs
+
+      - name: Verify Customer, Driver and Company Admin entry points
         run: |
-          test ! -f source/public/map.html
-          test -f source/apps/driver/public/map.html
-          test -f source/apps/company/public/map.html
-      - name: Validate dedicated map page scripts
-        run: |
-          python - <<'PY'
-          import pathlib, re, subprocess
-          pages = [
-              'source/apps/driver/public/map.html',
-              'source/apps/company/public/map.html',
-          ]
-          for index, page in enumerate(pages):
-              html = pathlib.Path(page).read_text()
-              scripts = re.findall(r'<script>(.*?)</script>', html, re.S)
-              if len(scripts) != 1:
-                  raise SystemExit(f'{page}: expected exactly one inline map script, found {len(scripts)}')
-              temp = pathlib.Path(f'/tmp/swifthaul-map-{index}.js')
-              temp.write_text(scripts[0])
-              subprocess.run(['node', '--check', str(temp)], check=True)
-          PY
-      - name: Validate migrated map JavaScript syntax
-        run: |
-          node --check source/public/location-picker.js
-          node --check source/public/map-utils.js
-          node --check source/public/route-preview.js
-          node --check source/apps/driver/public/operations.js
-          node --check source/apps/driver/public/live-location.js
-          node --check source/public/live-location-view.js
-          node --check source/apps/company/public/operations.js
-      - name: Validate booking-aware map links
-        run: |
-          grep -q 'booking-map-context-20261107' source/apps/driver/public/map.html
-          grep -q 'booking-map-context-20261107' source/apps/company/public/map.html
-          grep -q 'swiftHaulMap=map' source/apps/driver/public/map.html
-          grep -q 'swiftHaulMap=map' source/apps/company/public/map.html
-          ! grep -q 'map.html' source/public/customer.html
-          ! grep -q 'map.html' source/public/customer.js
-          grep -q 'live-location-view.js' source/public/customer.html
-          grep -q 'live-location.js' source/apps/driver/public/index.html
-          grep -q 'live-location-view.js' source/apps/company/public/index.html
-          grep -q 'swiftHaulMapContext' source/apps/driver/public/operations.js
-          grep -q 'swiftHaulMapContext' source/apps/company/public/operations.js
-          test -f source/supabase/functions/driver-location/index.ts
-          grep -q 'crypto.subtle.digest' source/supabase/functions/driver-location/index.ts
-          grep -q 'identity:' source/supabase/functions/driver-location/index.ts
-          test -f source/supabase/migrations/20261107000100_add_secure_driver_live_locations.sql
-      - name: Assemble three static platform entry points
-        run: |
-          mkdir -p site/apps/driver/public site/apps/company/public
-          cp -R source/public/. site/
-          cp -R source/apps/driver/public/. site/apps/driver/public/
-          cp -R source/apps/company/public/. site/apps/company/public/
-          touch site/.nojekyll
-          test -f site/customer.html
-          test -f site/apps/driver/public/index.html
-          test -f site/apps/company/public/index.html
-      - name: Configure Pages
+          test -f source/dist/customer/customer.html
+          test -f source/dist/driver/index.html
+          test -f source/dist/company/index.html
+          test -f source/dist/index.html
+          test -f source/dist/.nojekyll
+          echo "All three SwiftHaul staging platform bundles are present."
+
+      - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
-      - name: Upload Pages artifact
+
+      - name: Upload isolated staging site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: source/dist
 
   deploy:
     environment:

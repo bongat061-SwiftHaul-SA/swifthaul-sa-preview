@@ -16,4 +16,4 @@ The static preview uses the existing public client assets. Server-side Netlify F
 https://github.com/bongat061-SwiftHaul-SA/swifthaul-sa/tree/design/uber-inspired-three-platform-ui-clean
 
 
-Preview refresh trigger: Paystack customer checkout staging update (2026-11-17).
+Preview refresh trigger: Company Admin driver-approval staging fix (2026-11-17).

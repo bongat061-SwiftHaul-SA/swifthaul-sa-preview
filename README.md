@@ -23,3 +23,5 @@ Staging preview refresh: complete driver onboarding form and admin application-p
 Staging preview refresh: approved-driver selection, visible driver account IDs and copyable waybill references (2026-11-19).
 
 Dispatch refinement: pending waybill suggestions added to the offer form (2026-11-19).
+
+Preview refresh: driver approval validation feedback (2026-11-19).

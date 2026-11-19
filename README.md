@@ -40,3 +40,5 @@ Latest staging source fix: `96b9de027368bbcecf233d7f982f0769d6586aaf` (Driver po
 Preview refresh trigger: driver onboarding secure save-progress staging update (2026-11-19).
 
 Staging preview refresh: driver onboarding draft restoration fix c8539255.
+
+Staging preview refresh: invoke draft restore after form initialization 99ec125f.

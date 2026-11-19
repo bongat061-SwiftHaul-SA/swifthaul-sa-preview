@@ -27,3 +27,7 @@ Dispatch refinement: pending waybill suggestions added to the offer form (2026-1
 Preview refresh: driver approval validation feedback (2026-11-19).
 
 Staging refresh: immediate driver application notification flow (2026-11-19).
+
+
+<!-- staging-publish-source -->
+Latest staging source fix: `96b9de027368bbcecf233d7f982f0769d6586aaf` (Driver post-login approval-banner DOM insertion). This preview is isolated from production.

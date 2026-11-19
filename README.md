@@ -19,3 +19,5 @@ https://github.com/bongat061-SwiftHaul-SA/swifthaul-sa/tree/design/uber-inspired
 Preview refresh trigger: Company Admin driver-approval staging fix (2026-11-17).
 \n\nStaging preview refresh: Company Admin sign-up notification centre and corrected Driver/Company nested links (2026-11-17).\n
 Staging preview refresh: complete driver onboarding form and admin application-profile review (2026-11-17).
+
+Staging preview refresh: approved-driver selection, visible driver account IDs and copyable waybill references (2026-11-19).

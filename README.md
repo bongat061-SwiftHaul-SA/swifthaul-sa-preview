@@ -36,3 +36,5 @@ Latest staging source fix: `96b9de027368bbcecf233d7f982f0769d6586aaf` (Driver po
 <!-- Staging preview rebuild trigger: driver review details panel -->
 
 <!-- refresh staging preview: driver review panel cache-bust -->
+
+Preview refresh trigger: driver onboarding secure save-progress staging update (2026-11-19).

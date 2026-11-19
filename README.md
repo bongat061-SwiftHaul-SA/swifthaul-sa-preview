@@ -21,3 +21,5 @@ Preview refresh trigger: Company Admin driver-approval staging fix (2026-11-17).
 Staging preview refresh: complete driver onboarding form and admin application-profile review (2026-11-17).
 
 Staging preview refresh: approved-driver selection, visible driver account IDs and copyable waybill references (2026-11-19).
+
+Dispatch refinement: pending waybill suggestions added to the offer form (2026-11-19).

@@ -16,3 +16,5 @@ Preview rebuild requested to verify the deployed driver onboarding save payload 
 Preview rebuild requested for explicit driver draft field collection fix (2026-11-21).
 
 Staging preview refresh: driver draft-loader diagnostics.
+
+Preview rebuild requested for explicit authenticated driver draft restoration (2026-11-21).

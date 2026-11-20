@@ -30,3 +30,6 @@ Staging preview refresh requested for the Driver Application wizard update (2026
 
 
 Staging preview refresh: six-step driver application navigation, 2026-11-21.
+
+
+Staging refresh: six-step driver application navigation visibility fix.

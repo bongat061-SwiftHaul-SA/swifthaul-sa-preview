@@ -27,3 +27,6 @@ Staging rebuild trigger: finalized driver autosave queue guard (2026-11-21).
 
 
 Staging preview refresh requested for the Driver Application wizard update (2026-11-21).
+
+
+Staging preview refresh: six-step driver application navigation, 2026-11-21.

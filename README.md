@@ -42,3 +42,6 @@ Preview refresh trigger: driver onboarding secure save-progress staging update (
 Staging preview refresh: driver onboarding draft restoration fix c8539255.
 
 Staging preview refresh: invoke draft restore after form initialization 99ec125f.
+
+
+Staging preview refresh: driver draft restore status diagnostics.

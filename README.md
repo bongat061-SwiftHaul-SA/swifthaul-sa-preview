@@ -39,3 +39,6 @@ Staging refresh: driver wizard cache-bust 2026-11-21c.
 
 
 Staging refresh: driver wizard navigation and save controls layout fix (2026-11-21).
+
+
+Staging refresh: force-visible driver wizard header, six-step navigation and Save Progress controls (2026-11-21).

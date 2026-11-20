@@ -2,3 +2,6 @@ Staging preview refresh: unified driver draft restoration and mobile sign-out vi
 
 
 Preview rebuild requested for staging driver mobile sign-out visibility verification.
+
+
+Preview rebuild requested for driver session-recovery fallback.

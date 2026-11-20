@@ -18,3 +18,6 @@ Preview rebuild requested for explicit driver draft field collection fix (2026-1
 Staging preview refresh: driver draft-loader diagnostics.
 
 Preview rebuild requested for explicit authenticated driver draft restoration (2026-11-21).
+
+
+Staging rebuild trigger: driver application secure autosave update (2026-11-21).

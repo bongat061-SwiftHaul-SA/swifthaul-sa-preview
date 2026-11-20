@@ -8,3 +8,5 @@ Preview rebuild requested for driver session-recovery fallback.
 
 
 Preview rebuild requested for driver onboarding restore event fix.
+
+Preview rebuild requested for driver onboarding restore retry fix (2026-11-20).

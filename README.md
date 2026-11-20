@@ -10,3 +10,5 @@ Preview rebuild requested for driver session-recovery fallback.
 Preview rebuild requested for driver onboarding restore event fix.
 
 Preview rebuild requested for driver onboarding restore retry fix (2026-11-20).
+
+Preview rebuild requested to verify the deployed driver onboarding save payload and draft restoration (2026-11-21).

@@ -48,7 +48,9 @@ jobs:
           test -f source/dist/company/index.html
           test -f source/dist/index.html
           test -f source/dist/.nojekyll
-          echo "All three SwiftHaul staging platform bundles are present."
+          grep -q "driver-application.js?v=force-six-sections-20261121b" source/dist/driver/index.html
+          grep -q 'panel.style.setProperty("display","grid","important")' source/dist/driver/driver-application.js
+          echo "All three SwiftHaul staging platform bundles are present; all six Driver application sections are included in the published build."
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

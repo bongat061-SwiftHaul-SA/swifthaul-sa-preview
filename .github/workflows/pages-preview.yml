@@ -48,9 +48,9 @@ jobs:
           test -f source/dist/company/index.html
           test -f source/dist/index.html
           test -f source/dist/.nojekyll
-          grep -q "driver-application.js?v=wizard-controls-inline-20261121d" source/dist/driver/index.html
-          grep -q 'form.insertBefore(wizardControls,stepPanels[currentWizardStep].nextSibling)' source/dist/driver/driver-application.js
-          grep -q 'panel.hidden=i!==currentWizardStep' source/dist/driver/driver-application.js
+          grep -Fq "driver-application.js?v=wizard-controls-inline-20261121d" source/dist/driver/index.html
+          grep -Fq 'form.insertBefore(wizardControls,stepPanels[currentWizardStep].nextSibling)' source/dist/driver/driver-application.js
+          grep -Fq 'panel.hidden=i!==currentWizardStep' source/dist/driver/driver-application.js
           echo "All three SwiftHaul staging platform bundles are present; the Driver wizard displays one step at a time with controls immediately after the active step."
 
       - name: Configure GitHub Pages

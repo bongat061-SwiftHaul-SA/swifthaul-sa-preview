@@ -53,6 +53,10 @@ jobs:
           grep -Fq 'panel.hidden=i!==currentWizardStep' source/dist/driver/driver-application.js
           grep -Fq 'driver-wizard-controls #driver-documents-status' source/dist/driver/app.css
           grep -Fq 'driver-wizard-controls{display:flex;flex-wrap:wrap' source/dist/driver/app.css
+          grep -Fq 'account-settings.js?v=driver-account-accordion-20261122' source/dist/driver/index.html
+          grep -Fq 'account-settings.css?v=driver-premium-account-refresh-20261122' source/dist/driver/index.html
+          grep -Fq 'class="driver-setting-group"' source/dist/driver/account-settings.js
+          grep -Fq 'driver-setting-group>summary' source/dist/driver/account-settings.css
           echo "All three SwiftHaul staging platform bundles are present; the Driver wizard displays one step at a time with controls immediately after the active step."
 
       - name: Configure GitHub Pages

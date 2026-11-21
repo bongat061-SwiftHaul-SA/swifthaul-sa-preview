@@ -48,7 +48,7 @@ jobs:
           test -f source/dist/company/index.html
           test -f source/dist/index.html
           test -f source/dist/.nojekyll
-          grep -Fq "driver-application.js?v=driver-draft-restore-retry-20261122" source/dist/driver/index.html
+          grep -Fq "driver-application.js?v=driver-account-event-replay-20261122" source/dist/driver/index.html
           grep -Fq 'form.insertBefore(wizardControls,stepPanels[currentWizardStep].nextSibling)' source/dist/driver/driver-application.js
           grep -Fq 'panel.hidden=i!==currentWizardStep' source/dist/driver/driver-application.js
           grep -Fq 'driver-wizard-controls #driver-documents-status' source/dist/driver/app.css

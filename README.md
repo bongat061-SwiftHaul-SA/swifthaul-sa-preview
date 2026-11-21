@@ -44,3 +44,6 @@ Staging refresh: driver wizard navigation and save controls layout fix (2026-11-
 Staging refresh: force-visible driver wizard header, six-step navigation and Save Progress controls (2026-11-21).
 
 Staging refresh: render wizard navigation at account-panel level and validate forward step jumps (2026-11-21).
+
+
+Staging refresh: driver application all-six-sections visibility test (2026-11-21).

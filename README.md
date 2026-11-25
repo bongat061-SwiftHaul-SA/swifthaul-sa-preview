@@ -60,3 +60,5 @@ Staging preview rebuild: replace Driver map basemap with Google Maps and securel
 Staging preview rebuild: convert Customer, Driver and Company dispatch route maps to Google Maps; include awaiting-assignment dispatch routes (2026-11-26).
 
 Staging rebuild: driver availability Online/Offline controls and admin alerts.
+
+Staging rebuild: refresh Driver availability controls.

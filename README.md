@@ -53,3 +53,6 @@ Staging preview refresh: online-driver GPS pickup approach quotes, customer surc
 Staging preview rebuild: Driver MapLibre script-load ordering fix for blank map tiles (2026-11-25).
 
 Staging preview rebuild: correct Driver map shared route-context asset path (2026-11-25).
+
+
+Staging preview rebuild: replace Driver map basemap with Google Maps and securely inject the repository API-key secret (2026-11-26).

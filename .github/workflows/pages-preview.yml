@@ -79,3 +79,5 @@ jobs:
       - name: Deploy isolated preview to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+# Rebuild requested for the staging notification frontend update (2026-11-25).

@@ -56,3 +56,5 @@ Staging preview rebuild: correct Driver map shared route-context asset path (202
 
 
 Staging preview rebuild: replace Driver map basemap with Google Maps and securely inject the repository API-key secret (2026-11-26).
+
+Staging preview rebuild: convert Customer, Driver and Company dispatch route maps to Google Maps; include awaiting-assignment dispatch routes (2026-11-26).

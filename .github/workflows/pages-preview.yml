@@ -41,6 +41,11 @@ jobs:
         working-directory: source
         run: node scripts/build-pages.cjs
 
+      - name: Inject Google Maps key into the Driver staging bundle
+        env:
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+        run: |
+          node -e "const fs=require('fs');const p='source/dist/driver/map.html';const key=process.env.GOOGLE_MAPS_API_KEY;if(!key)throw new Error('Missing GOOGLE_MAPS_API_KEY repository secret');if(/[\\s<>]/.test(key))throw new Error('GOOGLE_MAPS_API_KEY contains unexpected whitespace or markup');const html=fs.readFileSync(p,'utf8');if(!html.includes('__GOOGLE_MAPS_API_KEY__'))throw new Error('Google Maps key placeholder not found in Driver map bundle');fs.writeFileSync(p,html.replaceAll('__GOOGLE_MAPS_API_KEY__',key));"
       - name: Verify Customer, Driver and Company Admin entry points
         run: |
           test -f source/dist/customer/customer.html

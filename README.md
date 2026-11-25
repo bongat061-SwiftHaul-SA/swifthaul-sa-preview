@@ -47,3 +47,5 @@ Staging refresh: render wizard navigation at account-panel level and validate fo
 
 
 Staging refresh: driver application all-six-sections visibility test (2026-11-21).
+
+Staging preview refresh: online-driver GPS pickup approach quotes, customer surcharge approval and wait-for-closer-driver option (2026-11-25).

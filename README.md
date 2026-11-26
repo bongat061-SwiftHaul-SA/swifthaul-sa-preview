@@ -64,3 +64,5 @@ Staging rebuild: driver availability Online/Offline controls and admin alerts.
 Staging rebuild: refresh Driver availability controls.
 
 Customer booking calculator syntax fix rebuild trigger: 2026-11-26T18:00Z
+
+Customer address dropdown, read-only selected-location map and OSRM geometry update: 2026-11-26T18:24Z

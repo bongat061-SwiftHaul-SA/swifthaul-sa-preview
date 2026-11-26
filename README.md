@@ -78,3 +78,5 @@ Staging booking UX rebuild: 2026-11-26 customer-selected vehicle, km-and-vehicle
 Final staging rebuild marker: 2026-11-26 include preset plus custom items in quote and review summary.
 
 Vehicle copy cleanup: 2026-11-26 selected vehicle is customer choice; tariff display no longer implies weight-based recommendations.
+
+Staging preview rebuild: Google Places South Africa + anonymous 30 km nearby-driver map markers (2026-11-26).

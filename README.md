@@ -70,3 +70,5 @@ Customer address dropdown, read-only selected-location map and OSRM geometry upd
 Staging booking enhancements rebuild marker: 2026-11-26 customer More options, custom item descriptions, vehicle choice, counter-offer and alerts.
 
 Staging preview rebuild marker: 2026-11-26 driver offer item details and customer booking extras final bundle.
+
+Final staging rebuild marker: 2026-11-26 optional driver matching for quote, plus customer notifications and driver item details.

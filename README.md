@@ -76,3 +76,5 @@ Final staging rebuild marker: 2026-11-26 optional driver matching for quote, plu
 Staging booking UX rebuild: 2026-11-26 customer-selected vehicle, km-and-vehicle-only pricing, counter-offer button, visible pre-review payment and South Africa Photon geocoding.
 
 Final staging rebuild marker: 2026-11-26 include preset plus custom items in quote and review summary.
+
+Vehicle copy cleanup: 2026-11-26 selected vehicle is customer choice; tariff display no longer implies weight-based recommendations.

@@ -82,3 +82,5 @@ Vehicle copy cleanup: 2026-11-26 selected vehicle is customer choice; tariff dis
 Staging preview rebuild: Google Places South Africa + anonymous 30 km nearby-driver map markers (2026-11-26).
 
 Staging preview rebuild: web push alerts and driver journey email/WhatsApp updates (2026-11-26).
+
+Staging preview rebuild: modern Google Places Data API and customer/driver push subscriptions (2026-11-26).

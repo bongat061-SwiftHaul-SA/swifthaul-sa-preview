@@ -62,3 +62,5 @@ Staging preview rebuild: convert Customer, Driver and Company dispatch route map
 Staging rebuild: driver availability Online/Offline controls and admin alerts.
 
 Staging rebuild: refresh Driver availability controls.
+
+Customer booking calculator syntax fix rebuild trigger: 2026-11-26T18:00Z

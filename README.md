@@ -68,3 +68,5 @@ Customer booking calculator syntax fix rebuild trigger: 2026-11-26T18:00Z
 Customer address dropdown, read-only selected-location map and OSRM geometry update: 2026-11-26T18:24Z
 
 Staging booking enhancements rebuild marker: 2026-11-26 customer More options, custom item descriptions, vehicle choice, counter-offer and alerts.
+
+Staging preview rebuild marker: 2026-11-26 driver offer item details and customer booking extras final bundle.

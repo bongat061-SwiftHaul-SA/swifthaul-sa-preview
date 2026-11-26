@@ -86,3 +86,5 @@ Staging preview rebuild: web push alerts and driver journey email/WhatsApp updat
 Staging preview rebuild: modern Google Places Data API and customer/driver push subscriptions (2026-11-26).
 
 Staging rebuild: preset-items-mobile-layout-2026-11-26
+
+Staging rebuild: counter-offer-action-review-consent-2026-11-26

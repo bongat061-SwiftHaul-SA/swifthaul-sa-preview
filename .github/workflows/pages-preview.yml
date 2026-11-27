@@ -58,7 +58,7 @@ jobs:
           test -f source/dist/company/dash-rewards-admin.js
           grep -Fq 'customer-dash-rewards' source/dist/customer/driver-dash.js
           grep -Fq 'dash-rewards' source/dist/company/section-pages.js
-          echo "Final staging verification: optional voucher handling, R200+ threshold, discounted Paystack totals, driver 75% protection and SwiftHaul subsidy accounting."
+          echo "Final staging verification: optional voucher handling, R200+ threshold, discounted Paystack totals, driver 75% protection, SwiftHaul subsidy accounting and cash-out forfeiture."
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

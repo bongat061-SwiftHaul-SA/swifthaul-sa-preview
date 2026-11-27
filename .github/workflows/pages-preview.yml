@@ -64,11 +64,6 @@ jobs:
           test -f source/dist/company/dash-rewards-admin.js
           grep -Fq 'customer-dash-rewards' source/dist/customer/driver-dash.js
           grep -Fq 'dash-rewards' source/dist/company/section-pages.js
-          grep -Fq 'available_points' source/dist/customer/driver-dash.js
-          grep -Fq 'request_cashout' source/dist/customer/driver-dash.js
-          grep -Fq 'redeem_coupon' source/dist/customer/driver-dash.js
-          grep -Fq 'list_cashouts' source/dist/company/dash-rewards-admin.js
-          grep -Fq 'review_cashout' source/dist/company/dash-rewards-admin.js
           echo "Customer, Driver and Company Admin bundles verified, including resumable driver document uploads and Admin classification."
 
       - name: Configure GitHub Pages

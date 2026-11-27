@@ -109,3 +109,6 @@ Final staging rebuild: customer welcome name parsing and tablet bottom dock adju
 
 
 Staging preview rebuild: coordinated premium depth styling for Customer, Driver and Company apps (2026-11-27).
+
+
+Staging refresh: branded moving-box welcome visual for the customer sign-in screen.

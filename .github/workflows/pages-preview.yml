@@ -1,5 +1,5 @@
 name: Publish isolated SwiftHaul staging preview
-# Four-group driver onboarding upload UI is included in the isolated staging build.
+# Four-group driver onboarding UI and grouped Admin review are included in the isolated staging build.
 
 on:
   push:

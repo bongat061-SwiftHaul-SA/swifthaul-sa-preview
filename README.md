@@ -114,3 +114,6 @@ Staging preview rebuild: coordinated premium depth styling for Customer, Driver 
 Staging refresh: branded moving-box welcome visual for the customer sign-in screen.
 
 Connection-state refresh: branded moving-box restore and offline/reconnect messaging.
+
+
+Preview refresh: Customer Driver Dash mini-game integration, 2026-11-27.

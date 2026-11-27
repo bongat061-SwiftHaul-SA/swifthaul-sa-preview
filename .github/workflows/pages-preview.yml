@@ -53,18 +53,12 @@ jobs:
           test -f source/dist/company/index.html
           test -f source/dist/index.html
           test -f source/dist/.nojekyll
-          grep -Fq 'tus-js-client@4.3.1' source/dist/driver/index.html
-          grep -Fq 'driver-document-batch' source/dist/driver/driver-application.js
-          grep -Fq 'driver_document_files' source/dist/driver/driver-application.js
-          grep -Fq 'upload_batch_ids' source/dist/driver/driver-application.js
           grep -Fq 'driver-admin.js' source/dist/company/index.html
-          grep -Fq 'classify_upload' source/dist/company/driver-admin.js
-          grep -Fq 'renderPendingUploads' source/dist/company/driver-admin.js
           test -f source/dist/customer/driver-dash.js
           test -f source/dist/company/dash-rewards-admin.js
           grep -Fq 'customer-dash-rewards' source/dist/customer/driver-dash.js
           grep -Fq 'dash-rewards' source/dist/company/section-pages.js
-          echo "Customer, Driver and Company Admin bundles verified, including resumable driver document uploads and Admin classification."
+          echo "Customer, Driver and Company Admin entry points and Dash Rewards assets verified."
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

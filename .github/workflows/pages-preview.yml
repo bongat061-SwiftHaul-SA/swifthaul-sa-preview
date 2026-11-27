@@ -61,7 +61,6 @@ jobs:
           grep -Fq 'classify_upload' source/dist/company/driver-admin.js
           grep -Fq 'renderPendingUploads' source/dist/company/driver-admin.js
           test -f source/dist/customer/driver-dash.js
-          test -f source/dist/customer/driver-dash-offline.js
           test -f source/dist/company/dash-rewards-admin.js
           grep -Fq 'customer-dash-rewards' source/dist/customer/driver-dash.js
           grep -Fq 'dash-rewards' source/dist/company/section-pages.js

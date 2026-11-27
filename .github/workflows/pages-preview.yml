@@ -5,13 +5,12 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/pages-preview.yml"
-      - "README.md"
   workflow_dispatch:
     inputs:
       source_ref:
         description: "SwiftHaul source branch to publish to this isolated preview"
         required: true
-        default: staging/wallet-payments-namhost
+        default: staging/driver-single-resumable-upload
         type: string
 
 permissions:
@@ -34,7 +33,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: bongat061-SwiftHaul-SA/swifthaul-sa
-          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.source_ref || 'feature/sa-sms-whatsapp-notifications-staging' }}
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.source_ref || 'staging/driver-single-resumable-upload' }}
           path: source
 
       - name: Build the three independent platform bundles
@@ -46,36 +45,21 @@ jobs:
           GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
         run: |
           node -e "const fs=require('fs');const p='source/dist/driver/map.html';const key=process.env.GOOGLE_MAPS_API_KEY;if(!key)throw new Error('Missing GOOGLE_MAPS_API_KEY repository secret');if(/[\\s<>]/.test(key))throw new Error('GOOGLE_MAPS_API_KEY contains unexpected whitespace or markup');const html=fs.readFileSync(p,'utf8');if(!html.includes('__GOOGLE_MAPS_API_KEY__'))throw new Error('Google Maps key placeholder not found in Driver map bundle');fs.writeFileSync(p,html.replaceAll('__GOOGLE_MAPS_API_KEY__',key));"
-      - name: Verify Customer, Driver and Company Admin entry points
+
+      - name: Verify all platform entry points and resumable document workflow
         run: |
           test -f source/dist/customer/customer.html
           test -f source/dist/driver/index.html
           test -f source/dist/company/index.html
           test -f source/dist/index.html
           test -f source/dist/.nojekyll
-          grep -Fq "driver-application.js?v=driver-panel-mount-restore-20261122" source/dist/driver/index.html
-          grep -Fq 'form.insertBefore(wizardControls,stepPanels[currentWizardStep].nextSibling)' source/dist/driver/driver-application.js
-          grep -Fq 'panel.hidden=i!==currentWizardStep' source/dist/driver/driver-application.js
-          grep -Fq 'driver-wizard-controls #driver-documents-status' source/dist/driver/app.css
-          grep -Fq 'driver-wizard-controls{display:flex;flex-wrap:wrap' source/dist/driver/app.css
-          grep -Fq 'account-settings.js?v=driver-account-accordion-20261122' source/dist/driver/index.html
-          grep -Fq 'account-settings.css?v=driver-premium-account-refresh-20261122' source/dist/driver/index.html
-          grep -Fq 'customer-map-consent.js?v=20261127-consent1' source/dist/driver/index.html
-          grep -Fq 'customer-availability.js?v=20261127-map1' source/dist/customer/customer.html
-          grep -Fq 'driver-dash.js?v=20261127-driver-dash4' source/dist/customer/customer.html
-          test -f source/dist/customer/driver-dash.js
-          test -f source/dist/customer/driver-dash.css
-          test -f source/dist/customer/driver-dash-offline.js
-          grep -Fq 'driver-dash-offline.js' source/dist/customer/offline.html
-          grep -Fq 'swifthaul-shell-v5' source/dist/customer/sw.js
-          grep -Fq 'driver-dash-offline.js' source/dist/customer/sw.js
-          test -f source/dist/customer/customer-availability.js
-          test -f source/dist/customer/customer-availability.css
-          test -f source/dist/driver/customer-map-consent.js
-          test -f source/dist/driver/customer-map-consent.css
-          grep -Fq 'class="driver-setting-group"' source/dist/driver/account-settings.js
-          grep -Fq 'driver-setting-group>summary' source/dist/driver/account-settings.css
-          echo "All three SwiftHaul staging platform bundles are present; customer availability map and driver consent assets are included."
+          grep -Fq 'tus-js-client@4.3.1' source/dist/driver/index.html
+          grep -Fq 'driver-document-batch' source/dist/driver/driver-application.js
+          grep -Fq 'driver_document_files' source/dist/driver/driver-application.js
+          grep -Fq 'upload_batch_ids' source/dist/driver/driver-application.js
+          grep -Fq 'driver-admin.js' source/dist/company/index.html
+          grep -Fq 'classify_upload' source/dist/company/driver-admin.js
+          echo "Customer, Driver and Company Admin bundles verified, including resumable driver document uploads and Admin classification."
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
@@ -97,5 +81,3 @@ jobs:
       - name: Deploy isolated preview to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-# Rebuild requested for the staging notification frontend update (2026-11-25).

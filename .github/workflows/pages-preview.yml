@@ -10,7 +10,7 @@ on:
       source_ref:
         description: "SwiftHaul source branch to publish to this isolated preview"
         required: true
-        default: staging/driver-single-resumable-upload
+        default: feature/sa-sms-whatsapp-notifications-staging
         type: string
 
 permissions:
@@ -33,7 +33,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: bongat061-SwiftHaul-SA/swifthaul-sa
-          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.source_ref || 'staging/driver-single-resumable-upload' }}
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.source_ref || 'feature/sa-sms-whatsapp-notifications-staging' }}
           path: source
 
       - name: Build the three independent platform bundles
@@ -60,6 +60,12 @@ jobs:
           grep -Fq 'driver-admin.js' source/dist/company/index.html
           grep -Fq 'classify_upload' source/dist/company/driver-admin.js
           grep -Fq 'renderPendingUploads' source/dist/company/driver-admin.js
+          test -f source/dist/customer/driver-dash.js
+          test -f source/dist/customer/driver-dash-offline.js
+          test -f source/dist/company/dash-rewards-admin.js
+          grep -Fq 'customer-dash-rewards' source/dist/customer/driver-dash.js
+          grep -Fq 'dash-rewards' source/dist/company/section-pages.js
+          grep -Fq 'driver-dash-offline.js' source/dist/customer/offline.html
           echo "Customer, Driver and Company Admin bundles verified, including resumable driver document uploads and Admin classification."
 
       - name: Configure GitHub Pages

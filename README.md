@@ -93,3 +93,6 @@ Staging rebuild: journey-notification-constraint-fix-2026-11-26
 
 
 Staging preview rebuild requested after refreshed SwiftHaul branding assets were committed to `feature/sa-sms-whatsapp-notifications-staging` in the source repository.
+
+
+Preview rebuild requested: Driver and Company Admin branding asset path correction (2026-11-27).

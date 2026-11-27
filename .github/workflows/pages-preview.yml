@@ -68,7 +68,7 @@ jobs:
           test -f source/dist/customer/driver-dash-offline.js
           grep -Fq 'driver-dash-offline.js' source/dist/customer/offline.html
           grep -Fq 'swifthaul-shell-v5' source/dist/customer/sw.js
-          grep -Fq 'driver-dash-offline.js' source/sw.js
+          grep -Fq 'driver-dash-offline.js' source/dist/customer/sw.js
           test -f source/dist/customer/customer-availability.js
           test -f source/dist/customer/customer-availability.css
           test -f source/dist/driver/customer-map-consent.js

@@ -58,7 +58,7 @@ jobs:
           test -f source/dist/company/dash-rewards-admin.js
           grep -Fq 'customer-dash-rewards' source/dist/customer/driver-dash.js
           grep -Fq 'dash-rewards' source/dist/company/section-pages.js
-          echo "Customer booking voucher checkout, Dash Rewards wallet, cashout review, and platform entry points verified."
+          echo "R200+ one-time voucher checkout, customer totals, driver cash collection, Dash Rewards wallet, and Admin cashout review verified."
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

@@ -62,6 +62,9 @@ jobs:
           grep -Fq 'account-settings.css?v=driver-premium-account-refresh-20261122' source/dist/driver/index.html
           grep -Fq 'customer-map-consent.js?v=20261127-consent1' source/dist/driver/index.html
           grep -Fq 'customer-availability.js?v=20261127-map1' source/dist/customer/customer.html
+          grep -Fq 'driver-dash.js?v=20261127-driver-dash2' source/dist/customer/customer.html
+          test -f source/dist/customer/driver-dash.js
+          test -f source/dist/customer/driver-dash.css
           test -f source/dist/customer/customer-availability.js
           test -f source/dist/customer/customer-availability.css
           test -f source/dist/driver/customer-map-consent.js

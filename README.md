@@ -96,3 +96,6 @@ Staging preview rebuild requested after refreshed SwiftHaul branding assets were
 
 
 Preview rebuild requested: Driver and Company Admin branding asset path correction (2026-11-27).
+
+
+Preview rebuild requested for the unified signed-in workspace styling update (2026-11-27).

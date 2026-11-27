@@ -59,6 +59,7 @@ jobs:
           grep -Fq 'upload_batch_ids' source/dist/driver/driver-application.js
           grep -Fq 'driver-admin.js' source/dist/company/index.html
           grep -Fq 'classify_upload' source/dist/company/driver-admin.js
+          grep -Fq 'renderPendingUploads' source/dist/company/driver-admin.js
           echo "Customer, Driver and Company Admin bundles verified, including resumable driver document uploads and Admin classification."
 
       - name: Configure GitHub Pages

@@ -60,9 +60,15 @@ jobs:
           grep -Fq 'driver-wizard-controls{display:flex;flex-wrap:wrap' source/dist/driver/app.css
           grep -Fq 'account-settings.js?v=driver-account-accordion-20261122' source/dist/driver/index.html
           grep -Fq 'account-settings.css?v=driver-premium-account-refresh-20261122' source/dist/driver/index.html
+          grep -Fq 'customer-map-consent.js?v=20261127-consent1' source/dist/driver/index.html
+          grep -Fq 'customer-availability.js?v=20261127-map1' source/dist/customer/customer.html
+          test -f source/dist/customer/customer-availability.js
+          test -f source/dist/customer/customer-availability.css
+          test -f source/dist/driver/customer-map-consent.js
+          test -f source/dist/driver/customer-map-consent.css
           grep -Fq 'class="driver-setting-group"' source/dist/driver/account-settings.js
           grep -Fq 'driver-setting-group>summary' source/dist/driver/account-settings.css
-          echo "All three SwiftHaul staging platform bundles are present; the Driver wizard displays one step at a time with controls immediately after the active step."
+          echo "All three SwiftHaul staging platform bundles are present; customer availability map and driver consent assets are included."
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

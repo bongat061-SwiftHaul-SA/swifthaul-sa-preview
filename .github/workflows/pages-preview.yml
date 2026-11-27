@@ -11,7 +11,7 @@ on:
       source_ref:
         description: "SwiftHaul source branch to publish to this isolated preview"
         required: true
-        default: feature/sa-sms-whatsapp-notifications-staging
+        default: staging/wallet-payments-namhost
         type: string
 
 permissions:

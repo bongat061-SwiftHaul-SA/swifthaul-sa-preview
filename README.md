@@ -106,3 +106,6 @@ Customer navigation simplified: fixed bottom tabs now open dedicated page URLs (
 Preview rebuild requested for Customer profile greeting, SwiftHaul brand mark, and responsive tablet/desktop layout (2026-11-27).
 
 Final staging rebuild: customer welcome name parsing and tablet bottom dock adjustment (2026-11-27).
+
+
+Staging preview rebuild: coordinated premium depth styling for Customer, Driver and Company apps (2026-11-27).

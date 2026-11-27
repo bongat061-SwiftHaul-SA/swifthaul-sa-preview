@@ -58,7 +58,7 @@ jobs:
           test -f source/dist/company/dash-rewards-admin.js
           grep -Fq 'customer-dash-rewards' source/dist/customer/driver-dash.js
           grep -Fq 'dash-rewards' source/dist/company/section-pages.js
-          echo "R200+ one-time voucher checkout, driver cash collection, unchanged driver share, SwiftHaul voucher subsidy accounting, Dash Rewards wallet and cashout review verified."
+          echo "Final staging build: R200+ one-time vouchers, discounted Paystack totals, cash collection, driver 75% protection and SwiftHaul subsidy accounting."
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

@@ -101,3 +101,6 @@ Preview rebuild requested: Driver and Company Admin branding asset path correcti
 Preview rebuild requested for the unified signed-in workspace styling update (2026-11-27).
 
 Customer navigation simplified: fixed bottom tabs now open dedicated page URLs (staging only, 2026-11-27).
+
+
+Preview rebuild requested for Customer profile greeting, SwiftHaul brand mark, and responsive tablet/desktop layout (2026-11-27).

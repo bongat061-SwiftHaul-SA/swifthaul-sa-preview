@@ -1,5 +1,5 @@
 name: Publish isolated SwiftHaul staging preview
-# Driver onboarding upload queue render-order fix, authenticated resumable Storage uploads and manual Admin review.
+# Driver onboarding upload queue render-order fix, cache refresh, authenticated resumable Storage uploads and manual Admin review.
 # Rebuild staging preview from the latest integrated source, including Dash Rewards terms confirmation.
 
 on:

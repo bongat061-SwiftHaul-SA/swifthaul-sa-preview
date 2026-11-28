@@ -1,5 +1,5 @@
 name: Publish isolated SwiftHaul staging preview
-# Two-step driver onboarding with a document-type picker, incremental secure uploads and manual Admin review.
+# Two-step driver onboarding with a document-type picker, TUS resumable uploads and manual Admin review.
 # Rebuild staging preview from the latest integrated source, including Dash Rewards terms confirmation.
 
 on:

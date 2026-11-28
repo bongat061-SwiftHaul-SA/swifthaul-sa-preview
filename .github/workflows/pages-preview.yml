@@ -1,5 +1,5 @@
 name: Publish isolated SwiftHaul staging preview
-# Two-step driver onboarding with one multi-file document picker and manual Admin classification.
+# Two-step driver onboarding with a document-type picker, incremental secure uploads and manual Admin review.
 # Rebuild staging preview from the latest integrated source, including Dash Rewards terms confirmation.
 
 on:
@@ -55,6 +55,10 @@ jobs:
           test -f source/dist/company/index.html
           test -f source/dist/index.html
           test -f source/dist/.nojekyll
+          node --check source/apps/driver/public/driver-application.js
+          grep -Fq 'What kind of document are you uploading?' source/apps/driver/public/driver-application.js
+          grep -Fq 'driver_licence' source/supabase/functions/driver-document-batch/index.ts
+          grep -Fq 'driver_licence' source/apps/company/public/driver-admin.js
           grep -Fq 'driver-admin.js' source/dist/company/index.html
           test -f source/dist/customer/driver-dash.js
           test -f source/dist/company/dash-rewards-admin.js

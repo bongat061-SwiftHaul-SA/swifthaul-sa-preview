@@ -1,6 +1,6 @@
 name: Publish isolated SwiftHaul staging preview
 # Driver onboarding uploads, searchable Admin driver directory, profile-linked document review and manual verification.
-# Rebuild staging preview from the latest integrated source, including Dash Rewards terms confirmation and in-game customer notifications.
+# Rebuild staging preview from the latest integrated source, including Dash Rewards terms confirmation and final in-game notification pause/resume checks.
 
 on:
   push:

@@ -1,6 +1,6 @@
 name: Publish isolated SwiftHaul staging preview
 # Driver onboarding uploads, searchable Admin driver directory, profile-linked document review and manual verification.
-# Rebuild staging preview from the latest integrated source, including Dash Rewards terms confirmation.
+# Rebuild staging preview from the latest integrated source, including Dash Rewards terms confirmation and in-game customer notifications.
 
 on:
   push:
@@ -56,6 +56,10 @@ jobs:
           test -f source/dist/index.html
           test -f source/dist/.nojekyll
           node --check source/public/driver-dash.js
+          node --check source/public/customer.js
+          grep -Fq 'data-dash-notice-minimise' source/dist/customer/driver-dash.js
+          grep -Fq 'swifthaul:customer-message' source/dist/customer/driver-dash.js
+          grep -Fq 'booking_approved' source/dist/customer/customer.js
           node --check source/apps/company/public/dash-rewards-admin.js
           node --check source/dist/company/driver-admin.js
           grep -Fq 'driver-profile-directory-20261128' source/dist/company/index.html

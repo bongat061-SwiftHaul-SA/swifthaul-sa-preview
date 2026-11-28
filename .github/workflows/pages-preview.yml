@@ -57,6 +57,11 @@ jobs:
           test -f source/dist/.nojekyll
           node --check source/public/driver-dash.js
           node --check source/apps/company/public/dash-rewards-admin.js
+          node --check source/dist/company/driver-admin.js
+          grep -Fq 'driver-profile-directory-20261128' source/dist/company/index.html
+          grep -Fq 'admin-driver-directory-20261128' source/dist/company/index.html
+          grep -Fq 'Unclassified uploads' source/dist/company/driver-admin.js
+          grep -Fq '25 per page' source/dist/company/driver-admin.js
           test -f source/dist/customer/driver-dash.js
           test -f source/dist/company/dash-rewards-admin.js
           grep -Fq 'customer-dash-rewards' source/dist/customer/driver-dash.js

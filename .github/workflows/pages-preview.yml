@@ -1,5 +1,5 @@
 name: Publish isolated SwiftHaul staging preview
-# Driver onboarding upload queue render-order fix, cache refresh, authenticated resumable Storage uploads and manual Admin review.
+# Driver onboarding uploads, searchable Admin driver directory, profile-linked document review and manual verification.
 # Rebuild staging preview from the latest integrated source, including Dash Rewards terms confirmation.
 
 on:
@@ -58,12 +58,16 @@ jobs:
           node --check source/apps/driver/public/driver-application.js
           node --check source/public/driver-dash.js
           node --check source/apps/company/public/dash-rewards-admin.js
+          node --check source/apps/company/public/driver-admin.js
           grep -Fq 'What kind of document are you uploading?' source/apps/driver/public/driver-application.js
           grep -Fq 'driver_licence' source/supabase/functions/driver-document-batch/index.ts
           grep -Fq 'Upload / retry' source/apps/driver/public/driver-application.js
           grep -Fq 'authorization:"Bearer "+sessionData.session.access_token' source/apps/driver/public/driver-application.js
           grep -Fq 'Drivers can upload their own application documents' source/supabase/migrations/20261128000400_driver_application_documents_storage_policy.sql
           grep -Fq 'driver_licence' source/apps/company/public/driver-admin.js
+          grep -Fq 'Unclassified uploads' source/apps/company/public/driver-admin.js
+          grep -Fq '25 per page' source/apps/company/public/driver-admin.js
+          grep -Fq 'pendingUploads.filter(u=>u.driver_user_id===driver.user_id)' source/apps/company/public/driver-admin.js
           grep -Fq 'driver-admin.js' source/dist/company/index.html
           test -f source/dist/customer/driver-dash.js
           test -f source/dist/company/dash-rewards-admin.js

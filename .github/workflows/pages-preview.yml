@@ -1,5 +1,5 @@
 name: Publish isolated SwiftHaul staging preview
-# Driver onboarding with sequential visible upload queue, authenticated resumable Storage uploads, clear queue action label and manual Admin review.
+# Driver onboarding upload queue render-order fix, authenticated resumable Storage uploads and manual Admin review.
 # Rebuild staging preview from the latest integrated source, including Dash Rewards terms confirmation.
 
 on:
@@ -12,7 +12,7 @@ on:
       source_ref:
         description: "SwiftHaul source branch to publish to this isolated preview"
         required: true
-        default: feature/sa-sms-whatsapp-notifications-staging
+        default: staging/driver-upload-preview-integration
         type: string
 
 permissions:

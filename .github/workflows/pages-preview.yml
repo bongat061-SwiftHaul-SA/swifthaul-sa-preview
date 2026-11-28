@@ -66,7 +66,8 @@ jobs:
           test -f source/dist/company/dash-rewards-admin.js
           grep -Fq 'customer-dash-rewards' source/dist/customer/driver-dash.js
           grep -Fq 'terms_version' source/dist/customer/driver-dash.js
-          grep -Fq 'review_voucher_claim' source/dist/company/dash-rewards-admin.js
+          grep -Fq 'list_admin_notifications' source/dist/company/dash-rewards-admin.js
+          grep -Fq 'list_cashouts' source/dist/company/dash-rewards-admin.js
           grep -Fq 'review_round' source/dist/company/dash-rewards-admin.js
           grep -Fq 'dash-rewards' source/dist/company/section-pages.js
           echo "Verified staging customer rewards, voucher terms and Admin round/voucher review."

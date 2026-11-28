@@ -12,7 +12,7 @@ on:
       source_ref:
         description: "SwiftHaul source branch to publish to this isolated preview"
         required: true
-        default: staging/driver-upload-preview-integration
+        default: feature/sa-sms-whatsapp-notifications-staging
         type: string
 
 permissions:
@@ -35,7 +35,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: bongat061-SwiftHaul-SA/swifthaul-sa
-          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.source_ref || 'staging/driver-upload-preview-integration' }}
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.source_ref || 'feature/sa-sms-whatsapp-notifications-staging' }}
           path: source
 
       - name: Build the three independent platform bundles
@@ -48,35 +48,23 @@ jobs:
         run: |
           node -e "const fs=require('fs');const p='source/dist/driver/map.html';const key=process.env.GOOGLE_MAPS_API_KEY;if(!key)throw new Error('Missing GOOGLE_MAPS_API_KEY repository secret');if(/[\\s<>]/.test(key))throw new Error('GOOGLE_MAPS_API_KEY contains unexpected whitespace or markup');const html=fs.readFileSync(p,'utf8');if(!html.includes('__GOOGLE_MAPS_API_KEY__'))throw new Error('Google Maps key placeholder not found in Driver map bundle');fs.writeFileSync(p,html.replaceAll('__GOOGLE_MAPS_API_KEY__',key));"
 
-      - name: Verify all platform entry points and resumable document workflow
+      - name: Verify platform entry points and Dash Rewards integration
         run: |
           test -f source/dist/customer/customer.html
           test -f source/dist/driver/index.html
           test -f source/dist/company/index.html
           test -f source/dist/index.html
           test -f source/dist/.nojekyll
-          node --check source/apps/driver/public/driver-application.js
           node --check source/public/driver-dash.js
           node --check source/apps/company/public/dash-rewards-admin.js
-          node --check source/apps/company/public/driver-admin.js
-          grep -Fq 'What kind of document are you uploading?' source/apps/driver/public/driver-application.js
-          grep -Fq 'driver_licence' source/supabase/functions/driver-document-batch/index.ts
-          grep -Fq 'Upload / retry' source/apps/driver/public/driver-application.js
-          grep -Fq 'authorization:"Bearer "+sessionData.session.access_token' source/apps/driver/public/driver-application.js
-          grep -Fq 'Drivers can upload their own application documents' source/supabase/migrations/20261128000400_driver_application_documents_storage_policy.sql
-          grep -Fq 'driver_licence' source/apps/company/public/driver-admin.js
-          grep -Fq 'Unclassified uploads' source/apps/company/public/driver-admin.js
-          grep -Fq '25 per page' source/apps/company/public/driver-admin.js
-          grep -Fq 'pendingUploads.filter(u=>u.driver_user_id===driver.user_id)' source/apps/company/public/driver-admin.js
-          grep -Fq 'driver-admin.js?v=driver-profile-directory-20261128' source/dist/company/index.html
-          grep -Fq 'app.css?v=admin-driver-directory-20261128' source/dist/company/index.html
           test -f source/dist/customer/driver-dash.js
           test -f source/dist/company/dash-rewards-admin.js
           grep -Fq 'customer-dash-rewards' source/dist/customer/driver-dash.js
           grep -Fq 'terms_version' source/dist/customer/driver-dash.js
+          grep -Fq 'review_voucher_claim' source/dist/company/dash-rewards-admin.js
           grep -Fq 'review_round' source/dist/company/dash-rewards-admin.js
           grep -Fq 'dash-rewards' source/dist/company/section-pages.js
-          echo "Final staging verification: voucher handling, R200+ threshold, discounted Paystack totals, driver protection, subsidy accounting, cash-out forfeiture, saved keep-points choice, daily 50-point bonus, five-day 25-point streak bonus, verified round review and two-step voucher claim approval."
+          echo "Verified staging customer rewards, voucher terms and Admin round/voucher review."
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
